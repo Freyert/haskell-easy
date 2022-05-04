@@ -18,5 +18,9 @@ spec = do
             roman "X" `shouldBe` (10 :: Int)
         it "IX = 9" $ do
             roman "IX" `shouldBe` (9 :: Int) 
+        it "MCMXCIV = 1994" $ do
+            roman "MCMXCIV" `shouldBe` (1994 :: Int)
+        it "LVIII = 58" $ do
+            roman "LVIII" `shouldBe` (58 :: Int)
     
 
