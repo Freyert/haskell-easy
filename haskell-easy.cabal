@@ -22,7 +22,7 @@ maintainer:         Freyert@users.noreply.github.com
 extra-source-files: CHANGELOG.md
 
 library
-    exposed-modules: RomanNumerals
+    exposed-modules: RomanNumerals, PalindromeNumber
 
     -- Modules included in this executable, other than Main.
     -- other-modules:
@@ -39,7 +39,7 @@ test-suite roman-numerals
     type: exitcode-stdio-1.0
     main-is: Spec.hs
     hs-source-dirs: test
-    other-modules: RomanNumeralsSpec
+    other-modules: RomanNumeralsSpec, PalindromeNumberSpec
     build-depends: base, hspec, haskell-easy
     build-tool-depends: hspec-discover:hspec-discover
     ghc-options: -Wall
