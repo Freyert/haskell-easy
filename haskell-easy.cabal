@@ -34,7 +34,7 @@ library
     default-language: Haskell2010
 
 
-test-suite roman-numerals
+test-suite leet
     default-language: Haskell2010
     type: exitcode-stdio-1.0
     main-is: Spec.hs

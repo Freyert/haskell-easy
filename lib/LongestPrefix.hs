@@ -1,14 +1,18 @@
-module LongestPrefix (commonPrefix) where
+module LongestPrefix (commonPrefix, longestPrefix) where
+import Data.Foldable (Foldable(fold))
 
 
 
-commonPrefix :: String -> String -> String -> String
-commonPrefix [] [] accum = accum
-commonPrefix (aHead:aTail) (bHead:bTail) accum
-    | aHead == bHead = aHead : accum ++ commonPrefix aTail bTail accum
+commonPrefix :: String -> String -> String ->  String
+commonPrefix accum [] []  = accum
+commonPrefix [] left [] = left
+commonPrefix [] [] right = right
+commonPrefix accum (leftHead:leftTail) (rightHead:rightTail) 
+    | leftHead == rightHead = commonPrefix (accum ++ [leftHead]) leftTail rightTail
     | otherwise = accum
-commonPrefix _ _ accum = accum
+commonPrefix accum _  _ = accum
+
+commonPrefixFold = commonPrefix []
 
 longestPrefix :: [String] -> String
-longestPrefix (head:next:tail) = commonPrefix head next [] -- head, the next string, and an accumulator ([])
-longestPrefix _ = []
+longestPrefix = foldr commonPrefixFold []
